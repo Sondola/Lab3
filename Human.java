@@ -23,7 +23,7 @@ abstract class Human implements Namable{
     public int hashCode() {
         int sum = 0;
         for (int i = 0; i<this.getName().length(); i++) {
-            sum = (sum + (int) this.getName().charAt(i)) % 1000000000;
+            sum = (sum + this.getName().hashCode() * 23) % 10000000;
         }
         return sum;
     }

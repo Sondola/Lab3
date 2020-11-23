@@ -15,8 +15,8 @@ public enum Medicine implements Namable{
         //System.out.println("Выписано новое лекарство: " + med);
     }
 
-    public Condition getCondition(Medicine med) {
-        return med.con;
+    public Condition getCondition() {
+        return con;
     }
 
     public String getName() {

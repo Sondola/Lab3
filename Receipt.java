@@ -15,12 +15,14 @@ public class Receipt {
 
     public void addMedIn(Medicine... medicines) {
         for (Medicine med : medicines)
-            medicinesIn.add(med);
+            if (med.getCondition() == Condition.IN)
+                medicinesIn.add(med);
     }
 
     public void addMedOut(Medicine... medicines) {
         for (Medicine med : medicines)
-            medicinesOut.add(med);
+            if (med.getCondition() == Condition.OUT)
+                medicinesOut.add(med);
     }
 
     public void showMedIn() {
@@ -45,10 +47,10 @@ public class Receipt {
     public int hashCode() {
         int sum = 0;
         for (Medicine med : medicinesIn) {
-            sum = sum + (int)med.getName().length();
+            sum = (sum + med.getName().hashCode() * 23) % 10000000;
         }
         for (Medicine med : medicinesOut) {
-            sum = sum + (int)med.getName().length();
+            sum = (sum + med.getName().hashCode() * 23) % 10000000;
         }
         return sum;
     }

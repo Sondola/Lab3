@@ -11,8 +11,8 @@ public class Patient extends Human implements Successable{
     }
 
     @Override
-    public void success(boolean a) {
-        if (a)
+    public void success(boolean suc) {
+        if (suc)
             System.out.println("Пациент " + this.name + " выздоровел");
         else
             System.out.println("Пациент " + this.name + " не выздоровел");
